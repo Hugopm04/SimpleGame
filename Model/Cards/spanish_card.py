@@ -1,11 +1,12 @@
-from card import Card
+from Model.Cards.card import Card
 from random import randint
-from spanish_suits import SpanishSuit
+
+from Model.Cards.spanish_suits import SpanishSuit
 
 class SpanishCard(Card):
     #Override
     @staticmethod
-    def possible_values():
+    def possible_values() -> list[int]:
         values = []
         for i in range(1, 11, 1):
             if i < 8:
@@ -16,7 +17,7 @@ class SpanishCard(Card):
 
     #Override
     @staticmethod
-    def possible_suits():
+    def possible_suits() -> list[SpanishSuit]:
         suits = []
         suits.append(SpanishSuit.CLUBS)
         suits.append(SpanishSuit.CUPS)
@@ -24,5 +25,5 @@ class SpanishCard(Card):
         suits.append(SpanishSuit.SWORDS)
         return(suits)
 
-    def __init__(self, value, suit):
-        super.__init__(value, suit)
+    def __init__(self, value : int, suit : SpanishSuit):
+        super().__init__(value, suit)
